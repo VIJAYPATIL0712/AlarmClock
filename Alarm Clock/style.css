@@ -1,0 +1,48 @@
+body {
+    height:700px;
+    background: linear-gradient(to bottom, #A9F1DF   , #FFBBBB);   
+
+}
+h2{
+    color:white;
+    padding:20px;
+    border:2px white;
+}
+h1{
+    color:white;
+    padding:20px;
+    
+}
+.line{
+    color:white;
+    
+}
+
+.clock{
+    
+    background: linear-gradient(to bottom, #764BA2     , #667EEA);  
+    border-radius : 100px 100px 0px 0px;
+    
+    
+}
+.set-alarm{
+    margin-top:20px;
+    
+}
+
+#show-time{
+    font-size:40px;
+    font-weight:bold;    
+}
+
+.colon{
+    color:dark;
+    font-weight:bolder;
+    font-size :20px;
+}
+
+#alarmList{
+    font-size:30px;
+    text-align:center;
+    text:white;
+}
