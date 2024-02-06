@@ -2,10 +2,10 @@
 It is a Mini Project created using HTML, CSS, Bootstrap, and JavaScript.
 
 Files Used:
-index.html (Frontend Code).
-style.css (CSS Code).
-style.js (JavaScript Code).
-Sound folder containing an alert sound used when the set time matches.
+        1.)index.html (Frontend Code).
+        2.)style.css (CSS Code).
+        3.)style.js (JavaScript Code).
+        4.)Sound folder containing an alert sound used when the set time matches.
 
 Design Explanation:  
 
