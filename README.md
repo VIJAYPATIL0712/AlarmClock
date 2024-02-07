@@ -33,6 +33,7 @@ Design Explanation:
             7.)updateAlarm(): Displays the list of alarms in the frontend.
             8.)Implemented setInterval function with a callback function and a timing parameter in milliseconds.
             9.)Matches the current time with the user-set time, and if they match, triggers the alarm alert.
+            10.)In built LocalStorage Function is used for holding the data on refresh.            
 
 
      This summarizes the implementation of the AlarmClock project.
