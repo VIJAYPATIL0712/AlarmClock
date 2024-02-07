@@ -1,13 +1,55 @@
-
 var showTime = document.getElementById('show-time');
 showTime.innerText = formatTime() ;
 
-var holdTime = [];
+
+/// This is an array for storing the alarm set by user
+var holdTime = []; 
+
+
+
+//For Current Time
+function formatTime() {
+    const date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+    let meridiem = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    return hours + ':' + minutes + ':' + seconds + ' ' + meridiem;
+}
+
+// Update the time initially
+document.getElementById('show-time').innerText = formatTime();
+
+// Update the time every second
+setInterval(function() {
+    document.getElementById('show-time').innerText = formatTime();
+}, 1000);
+
+
+// This is and add eventlistner on load it will show the stored array value in local storage to frontend after refreshing or opening
+window.addEventListener('load', function() {
+    const storedAlarms = localStorage.getItem('alarms');
+    if (storedAlarms) {
+        holdTime = JSON.parse(storedAlarms);
+        updateAlarmList();
+    }
+});
+
+
+
+//Function is adding an alarm when user sets an alarm and returning the that value
 function addAlarm(alarm) {
     holdTime.push(alarm); 
+    localStorage.setItem('alarms', JSON.stringify(holdTime));	
     return holdTime;
 }
 
+
+//This function adding the whatever data in frontend i.e alarm List 
 function updateAlarmList() {
     const alarmListElement = document.getElementById("alarmList");
 
@@ -31,7 +73,7 @@ function updateAlarmList() {
             deleteButton.addEventListener("click", function() {
                 
                 holdTime.splice(index, 1);
-                
+                localStorage.setItem('alarms', JSON.stringify(holdTime));                
                 updateAlarmList();
             });
 
@@ -43,27 +85,8 @@ function updateAlarmList() {
     }   
 }
 
-//For Current Time
-function formatTime() {
-    const date = new Date();
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
-    let meridiem = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    return hours + ':' + minutes + ':' + seconds + ' ' + meridiem;
-}
 
-// Update the time initially
-document.getElementById('show-time').innerText = formatTime();
 
-// Update the time every second
-setInterval(function() {
-    document.getElementById('show-time').innerText = formatTime();
-}, 1000);
 
 
 function setAlarm() {
@@ -90,7 +113,3 @@ function setAlarm() {
         }
     }, 1000); 
 }
-
-
-
-  
